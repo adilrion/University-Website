@@ -4,7 +4,7 @@ import { User } from './users.model'
 import { createNewUserId } from './users.utils'
 
 const createUser = async (user: IUser): Promise<IUser | null> => {
-  if (!user.password) {
+  if (!user?.password) {
     user.password = config.user_password as string
   }
 
