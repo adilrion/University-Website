@@ -1,8 +1,8 @@
 import { ApiError } from '../../../Error/apiError'
 import config from '../../../config'
-import { IUser } from './users.interface'
-import { User } from './users.model'
-import { createNewUserId } from './users.utils'
+import { IUser } from './user.interface'
+import { User } from './user.model'
+import { createNewUserId } from './user.utils'
 
 const createUser = async (user: IUser): Promise<IUser | null> => {
   if (!user?.password) {
