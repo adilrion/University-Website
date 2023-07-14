@@ -1,7 +1,7 @@
-import { IErrorInterface } from './errorInterface'
+import { IErrorInterface } from './errorInterface';
 
 export type IErrorGenericResponseInterface = {
-  statusCode: number
-  message: string
-  errorMessage: IErrorInterface[]
-}
+  statusCode: number;
+  message: string;
+  errorMessage: IErrorInterface[];
+};
