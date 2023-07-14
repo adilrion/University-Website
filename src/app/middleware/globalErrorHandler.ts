@@ -1,12 +1,12 @@
 import { ErrorRequestHandler } from 'express';
-import { validationError } from '../../Error/validationError';
+import { validationError } from '../../Errors/validationError';
 import config from '../../config';
-import { IErrorInterface } from '../interfaces/errorInterface';
+import { IErrorInterface } from '../../interfaces/errorInterface';
 
 import { Error } from 'mongoose';
-import { ApiError } from '../../Error/apiError';
 import { ZodError } from 'zod';
-import { zodErrorHandler } from '../../Error/zodErrorHandler';
+import { ApiError } from '../../Errors/apiError';
+import { zodErrorHandler } from '../../Errors/zodErrorHandler';
 
 export const globalErrorHandler: ErrorRequestHandler = (
   error,

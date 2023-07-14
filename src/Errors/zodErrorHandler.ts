@@ -1,6 +1,6 @@
 import { ZodError, ZodIssue } from 'zod';
-import { IErrorGenericResponseInterface } from '../app/interfaces/errorGenericResponseInterface';
-import { IErrorInterface } from '../app/interfaces/errorInterface';
+import { IErrorGenericResponseInterface } from '../interfaces/errorGenericResponseInterface';
+import { IErrorInterface } from '../interfaces/errorInterface';
 
 export const zodErrorHandler = (
   error: ZodError

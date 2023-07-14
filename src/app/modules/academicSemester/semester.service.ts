@@ -1,4 +1,4 @@
-import { ApiError } from '../../../Error/apiError';
+import { ApiError } from '../../../Errors/apiError';
 import { IAcademicSemester } from './semester.interface';
 import { AcademicSemesterModel } from './semester.model';
 
