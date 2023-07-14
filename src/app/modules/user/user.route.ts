@@ -1,5 +1,5 @@
 import express from 'express';
-import { ValidationHandler } from '../../middleware/validationZodHandler';
+import { ValidationHandler } from '../../middleware/zodValidationHandler';
 import { UserController } from './user.controller';
 import { UserValidationSchema } from './user.validation';
 

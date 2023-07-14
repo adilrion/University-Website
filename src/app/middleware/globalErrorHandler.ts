@@ -27,6 +27,7 @@ export const globalErrorHandler: ErrorRequestHandler = (
     errorMessage = responseError.errorMessage;
   } else if (error instanceof ZodError) {
     const responseError = zodErrorHandler(error);
+
     statusCode = responseError.statusCode;
     message = responseError.message;
     errorMessage = responseError.errorMessage;
