@@ -1,5 +1,7 @@
+import { SortOrder } from 'mongoose';
 import { ApiError } from '../../../Errors/apiError';
 import config from '../../../config';
+import { PaginationHelper } from '../../../helpers/paginationHelpers';
 import { IGenericDataResponse } from '../../../interfaces/genericDataResponse';
 import { IPaginationOption } from '../../../interfaces/paginationInterface';
 import { IUser } from './user.interface';
@@ -30,13 +32,17 @@ const createUser = async (user: IUser): Promise<IUser | null> => {
 const getAllUsers = async (
   pagination: IPaginationOption
 ): Promise<IGenericDataResponse<IUser[]>> => {
-  const { page = 1, limit = 10 } = pagination;
+  const { page, skip, limit, sortOrder, sortBy } = PaginationHelper(pagination);
 
-  const skip = (page - 1) * limit;
+  const sortCondition: { [key: string]: SortOrder } = {};
+  if (sortOrder && sortBy) {
+    sortCondition[sortBy] = sortOrder;
+  }
+
   const result = await User.find()
-    .sort({ createdAt: -1 })
+    .sort(sortCondition)
     .skip(skip)
-    .limit(limit)
+    .limit(Number(limit))
     .exec();
 
   const total = await User.countDocuments().exec();

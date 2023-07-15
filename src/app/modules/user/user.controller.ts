@@ -20,7 +20,7 @@ const createNewUser: RequestHandler = TryCatchAsync(async (req, res, next) => {
   next();
 });
 
-const getAllUser: RequestHandler = TryCatchAsync(async (req, res) => {
+const getAllUser: RequestHandler = TryCatchAsync(async (req, res, next) => {
   const paginationOption = Pick(req.query, PaginationField);
 
   const result = await UserService.getAllUsers(paginationOption);
@@ -31,6 +31,8 @@ const getAllUser: RequestHandler = TryCatchAsync(async (req, res) => {
     meta: result.meta,
     body: result.data,
   });
+
+  next();
 });
 
 export const UserController = {
